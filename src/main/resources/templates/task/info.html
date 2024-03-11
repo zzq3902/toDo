@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태스크 상세 정보</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/taskInfo.css}">
+</head>
+<body>
+<div class="task-details-container">
+    <button type="button" onclick="window.location.href='/task';" class="btn">메인 페이지</button>
+    <form th:action="@{/task/edit(id=${task.id})}" method="post" th:object="${task}">
+        <h2>태스크 상세 정보</h2>
+        <div class="form-group">
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="title" value="${title}" th:field="*{title}" required>
+        </div>
+        <div class="form-group">
+            <label for="startDate">시작일:</label>
+            <input type="date" id="startDate" name="startDate" value="${startDate}" th:field="*{startDate}" required>
+        </div>
+        <div class="form-group">
+            <label for="startTime">시작 시간:</label>
+            <input type="time" id="startTime" name="startTime" value="${startTime}" th:field="*{startTime}"required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">마감일:</label>
+            <input type="date" id="endDate" name="endDate" value="${endDate}" th:field="*{endDate}" required>
+        </div>
+        <div class="form-group">
+            <label for="endTime">마감 시간:</label>
+            <input type="time" id="endTime" name="endTime" value="${endTime}" th:field="*{endTime}" required>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="save-button">저장</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

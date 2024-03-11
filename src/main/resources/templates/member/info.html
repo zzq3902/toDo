@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>info</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>회원 정보</h1>
+<table class="table">
+    <tbody>
+    <tr>
+        <td>이름</td>
+        <td><input type="text" th:field="*{member.name}" th:disabled="true"></td>
+    </tr>
+    <tr>
+        <td>ID</td>
+        <td><input type="text" th:field="*{member.username}" th:disabled="true"></td>
+    </tr>
+    <tr>
+        <td>비밀번호</td>
+        <td><input type="text" th:field="*{member.password}" th:disabled="true"></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a href="/member/edit">수정</a>
+</div>
+<div>
+    <form id="delete_form" action="/member/delete" method="post">
+        <input type="hidden" name="_method" value="delete"/>
+        <button type="button" onclick="confirmDelete()" class="btn btn-danger">삭제</button>
+    </form>
+</div>
+<script src="/js/memberInfo.js"></script>
+</body>
+</html>
